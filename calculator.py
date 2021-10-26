@@ -1,61 +1,56 @@
-from tkinter import *
-tk = Tk()
+import tkinter as tk
+from tkinter import Button
+from tkinter import Entry
+from tkinter import Canvas
+from tkinter import Frame
+
+tk = tk.Tk()
+tk.geometry("312x324") 
+tk.resizable(0,0)
 tk.title("Calculator")
 height = 3
-width =9
+width =10
 borderwidth = -1
-canvas1 =Canvas(tk, width = 150, height = 40)
-canvas1.pack()
-first_frame = Frame(tk)
-first_frame.pack(side = 'top')
-entry = Entry(tk, font =('Calibri', 18), borderwidth=4) 
-canvas1.create_window(76,22, window=entry, width = 285, height=45)
+input_frame = Frame(tk, width = 312, height=50, bd=0, highlightbackground="black",highlightcolor="black", highlightthickness = 2)
+input_frame.pack(side='top')
+btns_frame = Frame(tk, width=312, height=272.5)
+btns_frame.pack()
+entry = Entry(input_frame, font =('arial', 18, 'bold'),width=50, bg = "#eee", bd=0, justify='right') 
+entry.grid(row=0, column=0)
+entry.pack(ipady=10)
+#first row 
+clear= Button(btns_frame,text="C",fg = 'black', width= 32, height=height, cursor="hand2", background='white',borderwidth=borderwidth).grid(row = 0, column = 0, columnspan = 3, padx = 1, pady = 1)
+divide= Button(btns_frame,text= '/',fg= "black", width=width,height=height, borderwidth=borderwidth, bd=0,  cursor="hand2").grid(row=0, column=3, padx = 1, pady=1)
 
-bottom_frame = Frame(tk)
-bottom_frame.pack(side='top')
-last_frame = Frame(tk)
-last_frame.pack(side = 'top')
-final_frame = Frame(tk)
-final_frame.pack(side = 'top')
-final_frame2 = Frame(tk)
-final_frame2.pack(side = 'top')
-frame = Frame(tk)
-frame.pack(side = 'top')
+#second row
+seven= Button(btns_frame,text="7", fg = 'black', width= width, bd=0, cursor ="hand2", background='white',height=height, borderwidth=borderwidth).grid(row= 1, column = 0,padx=1, pady=1)
+eight= Button(btns_frame, text = '8',fg="black", width= width, bd = 0, cursor ="hand2", background='white',height=height, borderwidth=borderwidth).grid(row= 1, column=1, padx=1, pady=1)
+nine= Button(btns_frame,text="9", fg = "black", width= width, bd=0, cursor = "hand2", background='white',height=height, borderwidth=borderwidth).grid(row=1, column=2,padx=1,pady=1)
+times= Button(btns_frame,text= 'x', fg = "black", bd = 0, cursor="hand2",  width= width, height=height, borderwidth=borderwidth).grid(row=1, column = 3, padx = 1, pady=1)
 
-no1= Button(final_frame2, text="1", width= width, background='white', height=height, borderwidth=borderwidth)
-no1.pack(side = 'left')
-no2= Button(final_frame2, text="2", width= width, background='white',height=height, borderwidth=borderwidth)
-no2.pack(side='left')
-no3= Button(final_frame2, text='3', width= width, background='white',height=height, borderwidth=borderwidth)
-no3.pack(side='left')
-no4= Button(final_frame, text="4", width= width, height=height, background='white', borderwidth=borderwidth)
-no4.pack(side = 'left')
-no5= Button(final_frame, text="5", width= width, background='white', height=height, borderwidth=borderwidth)
-no5.pack(side='left')
-no6= Button(final_frame, text="6", width= width, background='white',height=height, borderwidth=borderwidth)
-no6.pack(side='left')
-no7= Button(last_frame, text="7", width= width, background='white',height=height, borderwidth=borderwidth)
-no7.pack(side = 'left')
-no8= Button(last_frame, text="8", width= width, background='white',height=height, borderwidth=borderwidth)
-no8.pack(side='left')
-no9= Button(last_frame, text="9", width= width, background='white',height=height, borderwidth=borderwidth)
-no9.pack(side='left')
-plus= Button(final_frame2, text= '+', width= width, height=height, borderwidth=borderwidth)
-plus.pack(side='left')
-minus= Button(final_frame, text= '-', width= width, height=height, borderwidth=borderwidth)
-minus.pack(side='right')
-times= Button(last_frame, text= 'x', width= width, height=height, borderwidth=borderwidth)
-times.pack(side='right')
-divide= Button(bottom_frame, text= '/', width=width,height=height, borderwidth=borderwidth)
-divide.pack(side='right')
-clear= Button(bottom_frame, text="Clear", width= (width*3)+3, height=height, borderwidth=borderwidth)
-clear.pack(side = 'left')
-equal= Button(frame, text= '0', width= int((width*4)/3)+7, background='white',height = height, borderwidth=borderwidth)
-equal.pack(side='left')
-point= Button(frame, text= '.', width= width, height = height, borderwidth=borderwidth)
-point.pack(side='left')
-equal= Button(frame, text= '=', width=width, height = height, borderwidth=borderwidth)
-equal.pack(side='left')
+#third row
+four= Button(btns_frame, text="4", fg="black", bd=0, cursor="hand2", width= width, height=height, background='white', borderwidth=borderwidth).grid(row=2, column=0, padx = 1, pady=1)
+five= Button(btns_frame, text="5", fg= "black", bd=0, cursor="hand2", width= width, background='white', height=height, borderwidth=borderwidth).grid(row = 2, column = 1, padx = 1, pady = 1)
+six= Button(btns_frame, text="6",fg = "black", bd=0, cursor = "hand2", width= width, background='white',height=height, borderwidth=borderwidth).grid(row=2, column = 2, padx= 1, pady = 1)
+minus= Button(btns_frame, text= '-', fg = "black", bd=0, cursor = "hand2", width= width, height=height, borderwidth=borderwidth).grid(row=2, column =3, padx =1, pady=1)
 
-tk.resizable(False, False) 
+#fourth row
+one= Button(btns_frame, text="1", fg = "black", bd =0, cursor = "hand2", width= width, background='white', height=height, borderwidth=borderwidth).grid(row=3,column = 0, padx =1, pady=1)
+two= Button(btns_frame, text="2",fg = "black", bd=0, cursor = "hand2", width= width, background='white',height=height, borderwidth=borderwidth).grid(row=3, column =1 , padx =1, pady =1)
+three= Button(btns_frame, text='3',fg = "black", bd = 0, cursor="hand2", width= width, background='white',height=height, borderwidth=borderwidth).grid(row=3, column =2, padx = 1, pady =1)
+plus= Button(btns_frame, text= '+', fg ="black", bd = 0, cursor = "hand2", width= width, height=height, borderwidth=borderwidth).grid(row = 3, column=3, padx = 1, pady =1)
+
+#fifth row
+zero= Button(btns_frame, text= '0', fg = "black", bd =0, cursor = "hand2", width= 21, background='white',height = height, borderwidth=borderwidth).grid(row= 4, column = 0, columnspan=2, padx = 1, pady=1)
+point= Button(btns_frame, text= '.', fg = "black", bd =0, cursor = "hand2", width= width, height = height, borderwidth=borderwidth).grid(row = 4, column = 2, padx=1, pady=1)
+equals= Button(btns_frame,text= '=', fg = "black", bd = 0, cursor="hand2",width=width, height = height, borderwidth=borderwidth).grid(row = 4, column = 3, padx = 1, pady = 1)
+
+
+
+
+
+
+
+
+
 tk.mainloop()
